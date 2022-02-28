@@ -1,15 +1,18 @@
-# Basic Sample Hardhat Project
+# COSMIC CONTRACTS
+ 
+Cosmic contracts are deployed to BSC test net:
++ Cosmic token: 0x72f254EA803D05DA8aa5000498b507C308E2eA2B
++ Cosmic airdrop: 0x3872a243E13CEeFbA89783aF093176BEdAc4cb5C
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+For test please add .evn variable following:
 
-Try running some of the following tasks:
+OWNER_PRIVATE_KEY=@value1
+MNEMONIC="@value2"
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+With:
+@value1: private key of owner (in case deploy to hardhat localhost)
+@value2: mnemonic phrase to specify the owner when deploying to the live chain
+
+Please contact:
+* Phone: +84398190160
+* Telegram: @Dotrongthe

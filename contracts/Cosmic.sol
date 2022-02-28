@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.9;
 
 /**
  * @dev Wrappers over Solidity's arithmetic operations with added overflow
@@ -421,11 +421,10 @@ contract Cosmic is Context, Ownable, IERC20 {
    * construction.
    */
   constructor() {
-    uint256 fractions = 10 ** uint256(18);
     _name = "Cosmic";
     _symbol = "COS";
     _decimals = 18;
-    _maxSupply = 1000000000 * fractions;
+    _maxSupply = 1000000000 * 10 **_decimals;
   }
 
   /**
@@ -603,5 +602,33 @@ contract Cosmic is Context, Ownable, IERC20 {
 
     _allowances[owner][spender] = amount;
     emit Approval(owner, spender, amount);
+  }
+
+  /**
+   * @dev Issues `amount` tokens to the designated `address`.
+   *
+   * Can only be called by the current owner.
+   * See {ERC20-_mint}.
+   */
+  function mint(address account, uint256 amount) public onlyOwner {
+    _mint(account, amount);
+  }
+
+  /** @dev Creates `amount` tokens and assigns them to `account`, increasing
+   * the total supply.
+   *
+   * Emits a {Transfer} event with `from` set to the zero address.
+   *
+   * Requirements:
+   *
+   * - `to` cannot be the zero address.
+   */
+  function _mint(address account, uint256 amount) internal {
+    require(account != address(0), "ERC20: mint to the zero address");
+    require(_totalSupply + amount <= _maxSupply, "ERC20: mint amount exceeds max supply");
+
+    _totalSupply = _totalSupply.add(amount);
+    _balances[account] = _balances[account].add(amount);
+    emit Transfer(address(0), account, amount);
   }
 }
