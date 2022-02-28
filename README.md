@@ -1,12 +1,12 @@
 # COSMIC CONTRACTS
  
- ## Infomation
+## Infomation
 Cosmic contracts are deployed to BSC test net:
 + Cosmic token: 0x72f254EA803D05DA8aa5000498b507C308E2eA2B
 + Cosmic airdrop: 0x3872a243E13CEeFbA89783aF093176BEdAc4cb5C
 
 ## Testing
-For test please add .evn variable following:
+For test please add .env variable following:
 
 ```sh
 OWNER_PRIVATE_KEY=@value1
